@@ -3,10 +3,12 @@ package tn.esprit.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.credit;
 import tn.esprit.spring.repository.creditRepository;
 
+@Service
 public class creditImpl implements Icredit {
 
 	@Autowired
