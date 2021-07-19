@@ -16,6 +16,7 @@ public class agenceImpl implements  Iagenceserv{
 	@Autowired
 	AgenceRepository agenRepo;
 	
+	@SuppressWarnings("unused")
 	private static final Logger l = LogManager.getLogger(agenceImpl.class);
 	@Override
 	public int addAgene(Agence agence) {

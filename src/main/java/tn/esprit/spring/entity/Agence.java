@@ -16,6 +16,10 @@ import javax.persistence.TemporalType;
 @Table(name="gestion_agence")
 public class Agence implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="agence_id")

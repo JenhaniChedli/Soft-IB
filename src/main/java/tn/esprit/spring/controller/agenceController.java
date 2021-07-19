@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.Agence;
 import tn.esprit.spring.service.Iagenceserv;
 
 
-
+@Api( description="API pour les opérations CRUD sur les Agences.")
 @RestController
 public class agenceController {
 	@Autowired

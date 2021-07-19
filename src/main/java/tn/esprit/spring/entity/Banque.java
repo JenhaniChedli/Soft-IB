@@ -2,8 +2,6 @@ package tn.esprit.spring.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +16,10 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="gestion_bank_class")
 public class Banque implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="bank_id")

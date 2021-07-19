@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.credit;
 import tn.esprit.spring.service.Icredit;
 
+@Api( description="API pour les opérations CRUD sur les Credits.")
 @RestController
 public class creditController {
 	

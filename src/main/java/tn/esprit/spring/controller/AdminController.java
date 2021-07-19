@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.Admin;
 import tn.esprit.spring.service.AdminService;
 
+@Api( description="API pour les opérations CRUD sur les Admins.")
 @RestController
 public class AdminController {
 	@Autowired

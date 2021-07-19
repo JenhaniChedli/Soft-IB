@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.Client;
 import tn.esprit.spring.service.ClientService;
 
 
-
+@Api( description="API pour les opérations CRUD sur les Clients.")
 @RestController
 public class ClientController {
 	@Autowired

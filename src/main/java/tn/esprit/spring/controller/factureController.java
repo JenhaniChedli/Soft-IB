@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.facture;
 import tn.esprit.spring.service.Ifacture;
 
+@Api( description="API pour les opérations CRUD sur les Factures.")
 @RestController
 public class factureController {
 	@Autowired
