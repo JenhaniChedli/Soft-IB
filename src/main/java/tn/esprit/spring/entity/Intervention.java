@@ -14,6 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 @Entity
 public class Intervention implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="interventionid")
