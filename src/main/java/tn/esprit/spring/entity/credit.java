@@ -3,12 +3,14 @@ package tn.esprit.spring.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,8 +29,16 @@ private Date   dureeChoisie, dateDe1erRemboursement;
 private float  montant, taux;
 @Enumerated(EnumType.STRING)
 private TypeCredit type;
+
+
+//@OneToOne(mappedBy="Credit",cascade = CascadeType.ALL)
+//private Client client;
+
+
+
 public credit() {
 	super();
+	
 }
 public int getId() {
 	return id;
@@ -83,6 +93,18 @@ public String toString() {
 	return "credit [id=" + id + ", periodociteDesEcheances=" + periodociteDesEcheances + ", typeDamortissement="
 			+ typeDamortissement + ", dureeChoisie=" + dureeChoisie + ", dateDe1erRemboursement="
 			+ dateDe1erRemboursement + ", montant=" + montant + ", taux=" + taux + ", type=" + type + "]";
+}
+public credit(int id, String periodociteDesEcheances, String typeDamortissement, Date dureeChoisie,
+		Date dateDe1erRemboursement, float montant, float taux, TypeCredit type) {
+	super();
+	this.id = id;
+	this.periodociteDesEcheances = periodociteDesEcheances;
+	this.typeDamortissement = typeDamortissement;
+	this.dureeChoisie = dureeChoisie;
+	this.dateDe1erRemboursement = dateDe1erRemboursement;
+	this.montant = montant;
+	this.taux = taux;
+	this.type = type;
 }
 
 

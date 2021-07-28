@@ -12,42 +12,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.Api;
 import tn.esprit.spring.entity.credit;
 import tn.esprit.spring.service.Icredit;
 
-@Api( description="API pour les opérations CRUD sur les Credits.")
 @RestController
 public class creditController {
 	
 	@Autowired
 	Icredit creditService;
-@GetMapping("/affichecredit")
+@GetMapping("/showcredit")
 public List<credit> getCredit(){
 	   List<credit> crds=creditService.retrieveAllCredit();
 	   return crds;
 }
-@GetMapping("/retreive-credit/{credit-id}")
+@GetMapping("/aff-credit/{credit-id}")
 @ResponseBody
 public credit retrieveCredit(@PathVariable("credit-id") int creditId){
 	return creditService.retrieveCredit(creditId);
 }
-@PostMapping("/add-crd")
+@PostMapping("/ajoutercredit")
 @ResponseBody
 public credit addCredit(@RequestBody credit credits){
 	return creditService.add(credits) ;
 }
 
-@PutMapping("/update-crd")
+@PutMapping("/modifycredit")
 @ResponseBody
-public credit updateCredit(credit credits){
+public credit updateCredit(@RequestBody credit credits){
 	return creditService.updateCredit(credits);
 	
 }
-@DeleteMapping("/supprimer-credit/{credit-id}")
+@DeleteMapping("/supprimercredit/{credit-id}")
 @ResponseBody
 
-public void supprimerCredit(@PathVariable("crd-id") int id){
+public void supprimerCredit(@PathVariable("credit-id") int id){
 	creditService.deleteCredit(id);
 }
 
