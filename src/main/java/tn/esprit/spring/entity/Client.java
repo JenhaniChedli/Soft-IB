@@ -27,14 +27,36 @@ public class Client implements Serializable {
 	private String adresseClient;
 	@Enumerated(EnumType.STRING)
 	private Type type;
+	private boolean isActivated;
+	private String namephoto;
 	
-	public Client(Long codeClient, String nomClient, String adresseClient, Type type) {
+	
+	public Client(Long codeClient, String nomClient, String adresseClient, Type type,boolean isActivated) {
 		super();
 		this.codeClient = codeClient;
 		this.nomClient = nomClient;
 		this.adresseClient = adresseClient;
 		this.type = type;
+		this.isActivated = isActivated;
+		this.namephoto="defaultuser.jpg";
 	}
+	
+	public String getNamephoto() {
+		return namephoto;
+	}
+
+	public void setNamephoto(String namephoto) {
+		this.namephoto = namephoto;
+	}
+
+	public boolean isActivated() {
+		return isActivated;
+	}
+
+	public void setActivated(boolean isActivated) {
+		this.isActivated = isActivated;
+	}
+
 	public Client(Long codeClient, String nomClient, String adresseClient) {
 		super();
 		this.codeClient = codeClient;

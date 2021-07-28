@@ -10,4 +10,7 @@ public interface IAdmin {
 	 void deleteAdmin(Long id);
 	 Admin updateAdmin(Admin a);
 	 Admin retrieveAdmin(Long id);
+	 Admin getAdminByEmail(String email);
+	 Admin login(String nomAdmin,String password);
+	int countlogin();
 }

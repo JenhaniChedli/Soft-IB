@@ -43,4 +43,20 @@ public class AdminService implements IAdmin{
 		return adminRepository.findById(id).get();
 	}
 
+	@Override
+	public Admin login(String nomAdmin, String password) {		
+		return adminRepository.Login(nomAdmin, password);
+	}
+
+	@Override
+	public int countlogin() {		
+		return adminRepository.countLogin();
+	}
+
+	@Override
+	public Admin getAdminByEmail(String email) {
+		return adminRepository.findByEmail(email);
+			
+	}
+
 }

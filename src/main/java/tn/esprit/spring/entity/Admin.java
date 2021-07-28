@@ -1,14 +1,19 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="Admins")
+	
 public class Admin implements Serializable {
 	/**
 	 * 
@@ -17,18 +22,38 @@ public class Admin implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codeAdmin;
+	@Column(unique=true)
 	private String nomAdmin;
+	@Column(unique=true)
+	private String email;
 	private String password;
 	private boolean isLogged;
-	public Admin(Long codeAdmin, String nomAdmin, String password, boolean isLogged) {
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Client> Clients;
+	
+	public Set<Client> getClients() {
+		return Clients;
+	}
+	public void setClients(Set<Client> clients) {
+		Clients = clients;
+	}
+	public Admin(Long codeAdmin, String nomAdmin,String email, String password, boolean isLogged) {
 		super();
 		this.codeAdmin = codeAdmin;
 		this.nomAdmin = nomAdmin;
+		this.email = email;
 		this.password = password;
 		this.isLogged = isLogged;
 	}
 	public Admin() {
 		super();
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Long getCodeAdmin() {
 		return codeAdmin;
@@ -43,10 +68,20 @@ public class Admin implements Serializable {
 		this.nomAdmin = nomAdmin;
 	}
 	public String getPassword() {
-		return password;
+		 String aCrypter="";
+	        for (int i=0; i<password.length();i++)  {
+	            int c=password.charAt(i)^48; 
+	            aCrypter=aCrypter+(char)c;
+	        }
+	        return aCrypter;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		 String crypte="";
+	    for (int i=0; i<password.length();i++)  {
+            int c=password.charAt(i)^48; 
+            crypte=crypte+(char)c;
+        }
+		this.password = crypte;
 	}
 	public boolean isLogged() {
 		return isLogged;
